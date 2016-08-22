@@ -1,4 +1,5 @@
 var React = require('react');
+var Products = require('../utils/products');
 require('../main.css');
 
 var Main = React.createClass({
