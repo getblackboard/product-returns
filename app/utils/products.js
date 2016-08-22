@@ -1,18 +1,18 @@
 var axios = require('axios');
 
-function logArrayElements(element, index, array) {
-  console.log('a[' + index + '] = ' + element);
-}
+axios.all([
+	axios.get('http://crossorigin.me/https://simple.mybrightsites.com/api/v1/products?token=vDsDkjid-XP_1xSrntZe')
+	// axios.get();
+		.then(function(res){
 
-axios.get('http://crossorigin.me/https://simple.mybrightsites.com/api/v1/products?token=vDsDkjid-XP_1xSrntZe')
-	.then(function(response){
-		var product = response.products;
-		console.log(product);
-		console.log(response.data); // ex.: { user: 'Your User'}
-		console.log(response.status); // ex.: 200
-		console.log(response.data.products);
-}); 
+			var products = res.data.products;
 
-// function getProducts(products) {
-//   return axios.get('https://simple.mybrightsites.com/api/v1/products?token=vDsDkjid-XP_1xSrntZe');
-// }
+			for(var i in products) {
+				var productId = products[i].id;
+
+				(function() {
+					console.log('https://simple.mybrightsites.com/api/v1/products/' + productId + '/images?token=vDsDkjid-XP_1xSrntZe');
+				})();
+			}
+		})
+]);	
