@@ -9,10 +9,13 @@ var hashHistory = ReactRouter.hashHistory;
 var Main = require('../components/Main');
 var Home = require('../components/Home');
 
+// Containers
+var ProductsContainer = require('../containers/ProductsContainer');
+
 var routes = (
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
-      <IndexRoute component={Home} />
+      <IndexRoute component={ProductsContainer} header="Products"/>
     </Route>
   </Router>
 );
